@@ -106,9 +106,9 @@ def inference(network, moda_1, moda_g, imageNames, epoch, folder_save):
         nib.save(img_pred, folder_save + 'Segmentations/'+name)
         nib.save(img_gt, folder_save + 'GT/'+namegt)
 
-        dsc = evaluateSegmentation(gt,bin_seg)
-
-        dscAll[i_s, :] = dsc
+        # dsc = evaluateSegmentation(gt,bin_seg)
+        #
+        # dscAll[i_s, :] = dsc
 
     return dscAll
         
@@ -256,21 +256,21 @@ def runTraining(opts):
 
         print(' Epoch: {}, loss: {}'.format(e_i,np.mean(lossEpoch)))
 
-        if (e_i%opts.freq_inference)==0:
-            dsc = inference(liviaNet,moda_1_val, moda_g_val, imageNames_val,e_i, opts.save_dir)
-            dscAll.append(dsc)
-            print(' Metrics: DSC(mean): {} per class: 1({}) 2({}) 3({})'.format(np.mean(dsc),np.mean(dsc[:,0]),np.mean(dsc[:,1]),np.mean(dsc[:,2])))
-            if not os.path.exists(model_name):
-                os.makedirs(model_name)
-            
-            np.save(os.path.join(model_name, model_name + '_DSCs.npy'), dscAll)
-
-        d1 = np.mean(dsc)
-        if (d1>0.60):
-            if not os.path.exists(model_name):
-                os.makedirs(model_name)
-                
-            torch.save(liviaNet, os.path.join(model_name, "Best_" + model_name + ".pkl"))
+        # if (e_i%opts.freq_inference)==0:
+        #     dsc = inference(liviaNet,moda_1_val, moda_g_val, imageNames_val,e_i, opts.save_dir)
+        #     dscAll.append(dsc)
+        #     print(' Metrics: DSC(mean): {} per class: 1({}) 2({}) 3({})'.format(np.mean(dsc),np.mean(dsc[:,0]),np.mean(dsc[:,1]),np.mean(dsc[:,2])))
+        #     if not os.path.exists(model_name):
+        #         os.makedirs(model_name)
+        #
+        #     np.save(os.path.join(model_name, model_name + '_DSCs.npy'), dscAll)
+        #
+        # d1 = np.mean(dsc)
+        # if (d1>0.60):
+        #     if not os.path.exists(model_name):
+        #         os.makedirs(model_name)
+        #
+        #     torch.save(liviaNet, os.path.join(model_name, "Best_" + model_name + ".pkl"))
 
         if (100+e_i%20)==0:
              lr = lr/2
