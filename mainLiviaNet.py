@@ -9,7 +9,7 @@ from sampling import load_data_test
 import torch
 import torch.nn as nn
 from LiviaNET import *
-from medpy.metric.binary import dc,hd
+# from medpy.metric.binary import dc,hd
 import argparse
 
 import pdb
