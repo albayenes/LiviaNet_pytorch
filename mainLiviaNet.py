@@ -143,8 +143,8 @@ def runTraining(opts):
     root_dir = opts.root_dir
     model_name = opts.modelName
 
-    moda_1 = root_dir + 'Training/T1'
-    moda_g = root_dir + 'Training/GT'
+    moda_1 = root_dir + 'Training/T1.nii.gz'
+    moda_g = root_dir + 'Training/aseg.nii.gz'
 
     print(' --- Getting image names.....')
     print(' - Training Set: -')
@@ -157,8 +157,8 @@ def runTraining(opts):
     else:
         raise Exception(' - {} does not exist'.format(moda_1))
 
-    moda_1_val = root_dir + 'Validation/T1'
-    moda_g_val = root_dir + 'Validation/GT'
+    moda_1_val = root_dir + 'Validation/T1.nii.gz'
+    moda_g_val = root_dir + 'Validation/aseg.nii.gz'
 
     print(' --------------------')
     print(' - Validation Set: -')
