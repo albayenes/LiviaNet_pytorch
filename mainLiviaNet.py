@@ -239,10 +239,10 @@ def runTraining(opts):
             
             optimizer.step()
             lossEpoch.append(CE_loss_batch.cpu().data.numpy())
-
-            printProgressBar(b_i + 1, numBatches,
-                             prefix="[Training] Epoch: {} ".format(e_i),
-                             length=15)
+            print(loss)
+            # printProgressBar(b_i + 1, numBatches,
+            #                  prefix="[Training] Epoch: {} ".format(e_i),
+            #                  length=15)
               
             del MRIs
             del Segmentation
