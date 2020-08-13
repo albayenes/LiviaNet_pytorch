@@ -143,8 +143,8 @@ def runTraining(opts):
     root_dir = opts.root_dir
     model_name = opts.modelName
 
-    moda_1 = root_dir + 'Training/T1.nii.gz'
-    moda_g = root_dir + 'Training/aseg.nii.gz'
+    moda_1 = root_dir
+    moda_g = root_dir
 
     print(' --- Getting image names.....')
     print(' - Training Set: -')
@@ -157,19 +157,19 @@ def runTraining(opts):
     else:
         raise Exception(' - {} does not exist'.format(moda_1))
 
-    moda_1_val = root_dir + 'Validation/T1.nii.gz'
-    moda_g_val = root_dir + 'Validation/aseg.nii.gz'
+    # moda_1_val = root_dir + 'Validation/T1.nii.gz'
+    # moda_g_val = root_dir + 'Validation/aseg.nii.gz'
 
-    print(' --------------------')
-    print(' - Validation Set: -')
-    if os.path.exists(moda_1):
-        imageNames_val = [f for f in os.listdir(moda_1_val) if isfile(join(moda_1_val, f))]
-        imageNames_val.sort()
-        print(' ------- Images found ------')
-        for i in range(len(imageNames_val)):
-            print(' - {}'.format(imageNames_val[i])) 
-    else:
-        raise Exception(' - {} does not exist'.format(moda_1_val))
+    # print(' --------------------')
+    # print(' - Validation Set: -')
+    # if os.path.exists(moda_1):
+    #     imageNames_val = [f for f in os.listdir(moda_1_val) if isfile(join(moda_1_val, f))]
+    #     imageNames_val.sort()
+    #     print(' ------- Images found ------')
+    #     for i in range(len(imageNames_val)):
+    #         print(' - {}'.format(imageNames_val[i]))
+    # else:
+    #     raise Exception(' - {} does not exist'.format(moda_1_val))
           
     print("~~~~~~~~~~~ Creating the model ~~~~~~~~~~")
     num_classes = opts.numClasses
