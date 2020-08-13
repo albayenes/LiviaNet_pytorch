@@ -217,6 +217,7 @@ def runTraining(opts):
         x_train, y_train, img_shape = load_data_train(moda_1, moda_g, imageNames_train, samplesPerEpoch) # hardcoded to read the first file. Loop this to get all files. Karthik
 
         for b_i in range(numBatches):
+            print("Hello")
             optimizer.zero_grad()
             liviaNet.zero_grad()
             
