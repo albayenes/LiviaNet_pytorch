@@ -125,7 +125,8 @@ def load_data_train(path1, pathg, imageNames, numSamples):
     #print(' - Extracting {} samples per image'.format(samplesPerImage))
     X_train = []
     Y_train = []
-  
+
+    print(len(imageNames))
     for num in range(len(imageNames)):
         print("load_data_train")
         imageData_1 = nib.load(path1 + '/' + imageNames[num] + '/mri/T1.nii.gz').get_data()
